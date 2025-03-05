@@ -1,0 +1,29 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 30,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true
+  },
+  "tray": {
+    "icon-size": 18
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US"
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip": false
+  }
+}
