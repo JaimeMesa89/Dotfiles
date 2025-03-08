@@ -29,8 +29,8 @@ vim.keymap.set("n", "<space>q", "<cmd>q<CR>")
 vim.keymap.set("n", "<space>x", "<cmd>x<CR>")
 -- Exit terminal in terminal mode
 vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
--- Format text
-vim.keymap.set("n", "<space>p", function() vim.lsp.buf.format() end)
+-- Format/Indent text
+vim.keymap.set("n", "<space>i", function() vim.lsp.buf.format() end)
 
 -- Theme
 vim.o.background = "dark" -- or "light" for light mode
