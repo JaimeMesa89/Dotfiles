@@ -8,6 +8,8 @@ vim.opt.clipboard = "unnamedplus"
 -- Leader Key
 vim.g.mapleader = " "
 
+vim.g.mkdp_browser = "firefox"  -- Replace with your browser (e.g., "chrome", "brave", "edge")
+
 -- Set row number and relative number
 vim.opt.number = true
 vim.opt.relativenumber = true
