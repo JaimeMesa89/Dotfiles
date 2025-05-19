@@ -44,6 +44,10 @@ zstyle ':completion:*' menu no
 # Aliases
 alias v='nvim'
 
+# Variables
+export EDITOR=nvim
+export VISUAL=nvim
+
 # Shell integrations
 eval "$(fzf --zsh)"
 
