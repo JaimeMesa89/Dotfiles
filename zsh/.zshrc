@@ -44,9 +44,17 @@ zstyle ':completion:*' menu no
 # Aliases
 alias v='nvim'
 
-# Variables
+# yazi
 export EDITOR=nvim
 export VISUAL=nvim
+function y() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")" cwd
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(command cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 
 # Shell integrations
 eval "$(fzf --zsh)"
