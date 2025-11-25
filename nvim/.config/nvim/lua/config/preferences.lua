@@ -1,57 +1,41 @@
--- Tab size
-vim.opt.shiftwidth = 4
-vim.opt.tabstop = 4
+local opt = vim.opt
 
--- Clipboard
-vim.opt.clipboard = "unnamedplus"
+-- UI
+opt.number = true         -- Absolute line number on current line
+opt.relativenumber = true -- Relative line number on all other lines
+opt.cursorline = true     -- Highlights the line the cursor is on
+opt.showmode = false      -- Disable mode displaying
+opt.signcolumn = "yes"    -- Always show sign colum (LSP errors/warning, breakpoints, git)
+opt.termguicolors = true  -- Enables true 24-bit color in the terminal
 
--- Leader Key
-vim.g.mapleader = " "
+-- Tabs / Indent
+opt.expandtab = true   -- Converts the tabs in spaces automatically
+opt.shiftwidth = 2     -- Number of spaces inserted when indenting (<<, >>, autoindent)
+opt.tabstop = 2        -- How many spaces a tab is
+opt.smartindent = true -- Enable smartinent
 
-vim.g.mkdp_browser = "firefox"  -- Replace with your browser (e.g., "chrome", "brave", "edge")
+-- Search
+opt.ignorecase = true -- Searches become case-insensitive by default
+opt.smartcase = true  -- If the search contains any upper letter, the search become case-sensitive
+opt.incsearch = true  -- Show results while typing
+opt.hlsearch = true   -- Hightlights all matches of last search
 
--- Set row number and relative number
-vim.opt.number = true
-vim.opt.relativenumber = true
+-- Splits
+opt.splitbelow = true -- When creating a horizontal split it open below
+opt.splitright = true -- When creating a vertical split it opens to the right
 
--- Shortcuts
--- Oil
-vim.keymap.set("n", "-", "<cmd>Oil<CR>")
--- Split view vertical
-vim.keymap.set("n", "<space>v", "<cmd>vnew<CR>")
--- Split view horizontal
-vim.keymap.set("n", "<space>h", "<cmd>new<CR>")
--- Create new tab
-vim.keymap.set("n", "<space>t", "<cmd>tabnew<CR>")
--- Save
-vim.keymap.set("n", "<space>w", "<cmd>w<CR>")
--- Quit
-vim.keymap.set("n", "<space>q", "<cmd>q<CR>")
--- Save and quit
-vim.keymap.set("n", "<space>x", "<cmd>x<CR>")
--- Exit terminal in terminal mode
-vim.keymap.set("t", "<esc><esc>", "<c-\\><c-n>")
--- Format/Indent text
-vim.keymap.set("n", "<space>i", function() vim.lsp.buf.format() end)
+-- Misc
+opt.mouse = "a"               -- Enable mouse
+opt.clipboard = "unnamedplus" -- Use system clipboard by default
+opt.swapfile = false          -- Disables the creation of swap files
+opt.undofile = true           -- Enable persistent undo history
+opt.wrap = false              -- Disable line wrapping
+opt.scrolloff = 5             -- Number of padding lines when scrolling
 
--- Theme
-vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme gruvbox]])
+-- Godot
+-- Add this to godot external editor exec flags --server ./godothost --remote-send "<C-\><C-N>:n {file}<CR>{line}G{col}|"
+local projectfile = vim.fn.getcwd() .. "/project.godot"
 
--- Terminal
--- Remove row number on terminal
-vim.api.nvim_create_autocmd("TermOpen", {
-	group = vim.api.nvim_create_augroup("custom-term-open", { clear = true }),
-	callback = function()
-		vim.opt.number = false
-		vim.opt.relativenumber = false
-	end,
-})
-
--- Create bottom terminal
-vim.keymap.set("n", "<space>b", function()
-	vim.cmd.vnew()
-	vim.cmd.term()
-	vim.cmd.wincmd("J")
-	vim.api.nvim_win_set_height(0, 5)
-end)
+if vim.loop.fs_stat(projectfile) then
+  vim.fn.serverstart("./godothost")
+end
