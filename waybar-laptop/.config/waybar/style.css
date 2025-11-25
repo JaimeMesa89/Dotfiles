@@ -1,0 +1,82 @@
+* {
+  border:        none;
+  border-radius: 0;
+  font-family:   Sans;
+  font-size:     15px;
+  box-shadow:    none;
+  text-shadow:   none;
+  transition-duration: 0s;
+}
+
+window {
+  color:      rgba(249, 244, 212, 1);
+  background: rgba(14, 14, 14, 1);
+}
+
+#workspaces {
+  margin: 0 5px;
+}
+
+#workspaces button {
+  padding:    0 5px;
+  color:      rgba(249, 244, 212, 0.4);
+  transition-property: background, color, padding, text-shadow;
+  transition-duration: .2s;
+  transition-timing-function: ease-out;
+}
+
+#workspaces button:hover{
+  background: rgba(0,0,0, 0.15);
+  color: rgba(249,244,212,0.6);
+}
+
+#workspaces button.visible {
+  color:      rgba(249, 224, 212, 1);
+}
+
+#workspaces button.urgent {
+  color:      rgba(238, 46, 36, 1);
+}
+
+#clock {
+  margin: 0px 10px 0px 6px;
+  min-width: 125px;
+}
+
+#language {
+  min-width: 23px;
+  margin: 0px 0px 0px 6px;
+}
+
+#tray{
+  margin: 0px 0px 0px 6px;
+}
+
+/* === NETWORK (WiFi / Ethernet) === */
+#network {
+  margin: 0px 0px 0px 6px;
+  color: rgba(173, 216, 230, 0.9); /* azul claro */
+}
+
+#network.disconnected {
+  color: rgba(238, 46, 36, 1); /* rojo cuando no hay red */
+}
+
+#backlight {
+  margin: 0px 0px 0px 6px;
+}
+
+/* === BATTERY === */
+#battery {
+  margin: 0px 0px 0px 6px;
+  color: rgba(173, 255, 47, 0.9); /* verde lima por defecto */
+}
+
+/* Cambia de color según estado */
+#battery.charging {
+  color: rgba(255, 215, 0, 1); /* dorado cuando carga */
+}
+
+#battery.critical {
+  color: rgba(238, 46, 36, 1); /* rojo si bajo */
+}

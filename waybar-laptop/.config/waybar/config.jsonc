@@ -1,0 +1,62 @@
+{
+  "layer": "bottom",
+  "position": "top",
+  "height": 30,
+
+  "modules-left": ["hyprland/workspaces"],
+  "modules-center": ["hyprland/window"],
+  "modules-right": [
+    "tray",
+    "hyprland/language",
+    "network",
+    "backlight",
+    "battery",
+    "clock"
+  ],
+
+  "hyprland/workspaces": {
+    "format": "{name}",
+    "disable-scroll": true
+  },
+  "tray": {
+    "icon-size": 18
+  },
+  "hyprland/language": {
+    "format": "{}",
+    "format-en": "US"
+  },
+  "network": {
+    "format-wifi": "  {essid}",
+    "format-ethernet": "󰈁  {ifname}",
+    "format-disconnected": "  No red",
+    "tooltip-format": "{ifname} via {gwaddr}\nIP: {ipaddr}",
+    "interval": 5
+  },
+    "backlight": {
+    // Change this to match your device from: ls /sys/class/backlight
+    "device": "amdgpu_bl1",
+    "format": "{icon} {percent}%",
+    "format-icons": ["󰃞", "󰃟", "󰃠"],
+
+    // Scroll to change brightness (requires brightnessctl installed)
+    "on-scroll-up": "brightnessctl set +5%",
+    "on-click": "brightnessctl set +5%",
+    "on-scroll-down": "brightnessctl set 5%-",
+    "on-click-right": "brightnessctl set 5%-"
+  },
+  "battery": {
+    "states": {
+      "critical": 20
+    },
+    "format": "{capacity}% {icon}",
+    "format-icons": ["󰂎", "󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+    "format-charging": "  {capacity}%",
+    "format-full": "󰁹  {capacity}%",
+    "tooltip": true,
+    "interval": 10
+  },
+  "clock": {
+    "format": "{:%a %d %b %H:%M}",
+    "tooltip": false
+  }
+}
