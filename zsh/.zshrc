@@ -59,6 +59,7 @@ precmd() {
 # Aliases
 alias v='nvim'
 alias o='xdg-open'
+alias yt-get-wav='yt-dlp -x --audio-format wav --audio-quality 0'
 
 ## Yazi file manager
 function y() {
@@ -92,3 +93,6 @@ source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zs
 
 ## Autosuggestions
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# opencode
+export PATH=/home/junk/.opencode/bin:$PATH
