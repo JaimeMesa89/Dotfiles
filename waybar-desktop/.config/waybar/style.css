@@ -1,15 +1,15 @@
 * {
-  border:        none;
+  border: none;
   border-radius: 0;
-  font-family:   Sans;
-  font-size:     15px;
-  box-shadow:    none;
-  text-shadow:   none;
+  font-family: Sans;
+  font-size: 15px;
+  box-shadow: none;
+  text-shadow: none;
   transition-duration: 0s;
 }
 
 window {
-  color:      rgba(249, 244, 212, 1);
+  color: rgba(249, 244, 212, 1);
   background: rgba(14, 14, 14, 1);
 }
 
@@ -18,24 +18,24 @@ window {
 }
 
 #workspaces button {
-  padding:    0 5px;
-  color:      rgba(249, 244, 212, 0.4);
+  padding: 0 5px;
+  color: rgba(249, 244, 212, 0.4);
   transition-property: background, color, padding, text-shadow;
   transition-duration: .2s;
   transition-timing-function: ease-out;
 }
 
-#workspaces button:hover{
-  background: rgba(0,0,0, 0.15);
-  color: rgba(249,244,212,0.6);
+#workspaces button:hover {
+  background: rgba(0, 0, 0, 0.15);
+  color: rgba(249, 244, 212, 0.6);
 }
 
 #workspaces button.visible {
-  color:      rgba(249, 224, 212, 1);
+  color: rgba(249, 224, 212, 1);
 }
 
 #workspaces button.urgent {
-  color:      rgba(238, 46, 36, 1);
+  color: rgba(238, 46, 36, 1);
 }
 
 #clock {
@@ -48,6 +48,6 @@ window {
   margin: 0px 0px 0px 6px;
 }
 
-#tray{
+#tray {
   margin: 0px 0px 0px 6px;
 }
