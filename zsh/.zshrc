@@ -60,6 +60,7 @@ precmd() {
 alias v='nvim'
 alias o='xdg-open'
 alias yt-get-wav='yt-dlp -x --audio-format wav --audio-quality 0'
+alias bc='bc -q -l'
 
 ## Yazi file manager
 function y() {

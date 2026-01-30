@@ -31,11 +31,3 @@ opt.swapfile = false          -- Disables the creation of swap files
 opt.undofile = true           -- Enable persistent undo history
 opt.wrap = false              -- Disable line wrapping
 opt.scrolloff = 5             -- Number of padding lines when scrolling
-
--- Godot
--- Add this to godot external editor exec flags --server ./godothost --remote-send "<C-\><C-N>:n {file}<CR>{line}G{col}|"
-local projectfile = vim.fn.getcwd() .. "/project.godot"
-
-if vim.loop.fs_stat(projectfile) then
-  vim.fn.serverstart("./godothost")
-end

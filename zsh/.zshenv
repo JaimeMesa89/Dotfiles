@@ -18,3 +18,10 @@ export PATH="$XDG_CONFIG_HOME/scripts:$PATH"
 # History files outside $HOME
 export LESSHISTFILE="$XDG_CACHE_HOME/less_history"
 export PYTHON_HISTORY="$XDG_DATA_HOME/python/history"
+
+# source /opt/esp/esp-idf/export.sh > /dev/null 2>&1
+idf.py() {
+  unset -f idf.py
+  source /opt/esp/esp-idf/export.sh > /dev/null 2>&1
+  command idf.py "$@"
+}

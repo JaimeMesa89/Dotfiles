@@ -44,7 +44,6 @@ return {
 
   -- lsp + mason
   {
-    -- We drive everything from mason-lspconfig now
     "mason-org/mason-lspconfig.nvim",
     dependencies = {
       { "mason-org/mason.nvim" }, -- LSP installer
@@ -52,21 +51,18 @@ return {
       "hrsh7th/cmp-nvim-lsp",     -- for completion capabilities
     },
     config = function()
-      -- 1. Mason core
       require("mason").setup()
 
-      -- 2. Mason-lspconfig: install + auto-enable servers
       require("mason-lspconfig").setup({
         ensure_installed = {
           "lua_ls",
         },
-        automatic_enable = true
+        automatic_enable = true,
       })
 
-      -- 3. Capabilities for nvim-cmp
       local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      -- 4. Configure each server with vim.lsp.config (new API)
+      -- Lua
       vim.lsp.config("lua_ls", {
         capabilities = capabilities,
         settings = {
@@ -81,6 +77,7 @@ return {
         },
       })
 
+      -- GDScript
       vim.lsp.config("gdscript", {
         capabilities = capabilities,
       })
