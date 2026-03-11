@@ -7,7 +7,7 @@ filepath="$screenshot_dir/$filename"
 
 # Check if the -s parameter is passed
 if [ "$1" == "-s" ]; then
-    grim -g "$(slurp)" "$filepath"
+    grim -g "$(slurp)" - | tee "$filepath" | wl-copy --type image/png
 else
-    grim "$filepath"
+    grim -o DP-1 - | tee "$filepath" | wl-copy --type image/png
 fi
